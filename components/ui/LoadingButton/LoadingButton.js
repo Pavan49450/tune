@@ -1,7 +1,7 @@
 // import { CircularProgress } from "@material-ui/core";
 import styles from "./LoadingButton.module.css";
-import LoadingSpinner from "../LoadingAnimations/CircularLoading";
 import Button from "../Button/Button";
+import { CircularProgress } from "@material-ui/core";
 const LoadingButton = ({
   text,
   className,
@@ -21,12 +21,7 @@ const LoadingButton = ({
       disabled={disabled}
       style={{ ...style, backgroundColor: disabledColor }}
     >
-      {isLoading ? (
-        // <CircularProgress style={{ color: loaderColor }} />
-        <LoadingSpinner />
-      ) : (
-        text
-      )}
+      {isLoading ? <CircularProgress style={{ color: loaderColor }} /> : text}
     </Button>
   );
 };

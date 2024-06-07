@@ -14,7 +14,7 @@ const Header = () => {
   const router = useRouter();
   return (
     <div className=" max-w-7xl  mx-auto p-4 bg-customColor flex justify-between items-center">
-      <h1 className=" my-4 text-center text-2xl text-white font-semibold">
+      <h1 className=" text-center text-2xl text-white font-semibold">
         <span className="text-4xl">TUNE </span>
         in-to Weather
       </h1>

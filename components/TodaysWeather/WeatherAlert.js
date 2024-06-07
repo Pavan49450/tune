@@ -1,12 +1,12 @@
 import { useAuth } from "@/context/AuthProvider";
-import { auth, db } from "@/firebaseConfig/firebaseConfig";
-import formatDate from "@/hooks/formatDate";
-import { collection, doc, getDoc, getDocs, where } from "firebase/firestore";
+import { db } from "@/firebaseConfig/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
 
 const WeatherAlert = () => {
-  const { currentUser } = useAuth();
   const [alerts, setAlerts] = useState();
+
   // const docRef = doc(db, "weatherInfo");
 
   useEffect(() => {
@@ -22,10 +22,10 @@ const WeatherAlert = () => {
       setAlerts(alertsArray);
     };
     getWeatherAlerts();
-  }, []);
+  }, [db]);
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="bg-white rounded-lg">
       <h2 className="text-xl font-semibold mb-2 p-2">
         Weather Alerts from tune users
       </h2>
@@ -33,6 +33,11 @@ const WeatherAlert = () => {
         <AlertTable alerts={alerts} />
       ) : (
         <p>No alerts at this time.</p>
+      )}
+      {!alerts && (
+        <div className="w-full flex items-center justify-center p-16">
+          <CircularProgress />
+        </div>
       )}
     </div>
   );
@@ -56,9 +61,11 @@ const AlertTable = ({ alerts }) => {
           {alerts &&
             alerts.map((alert, index) => (
               <tr key={index} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b">{alert.place}</td>
+                <td className="py-2 px-4 border-b text-center">
+                  {alert.place}
+                </td>
                 <td className="py-2 px-4 border-b text-center">{alert.name}</td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b text-center">
                   {new Date(alert.date.seconds * 1000).toLocaleDateString()}
                 </td>
                 <td className="py-2 px-4 border-b text-center">

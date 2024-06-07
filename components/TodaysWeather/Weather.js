@@ -1,3 +1,5 @@
+import WeatherAlert from "./WeatherAlert";
+
 const { default: Image } = require("next/image");
 const { useState } = require("react");
 
@@ -22,7 +24,7 @@ const Weather = ({ data }) => {
     degree === "f" ? (temperatureCelsius * 9) / 5 + 32 : temperatureCelsius;
 
   return (
-    <div className="max-w-lg  mx-auto border p-4 shadow bg-white overflow-hidden w-1/2">
+    <div className="w-full mx-auto border p-4 shadow bg-white overflow-hidden">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
           <Image
@@ -67,6 +69,7 @@ const Weather = ({ data }) => {
           <div>Wind: {wind}</div>
         </div>
       </div>
+      <WeatherAlert />
     </div>
   );
 };

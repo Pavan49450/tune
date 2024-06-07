@@ -1,11 +1,8 @@
 "use client";
-
-import { doSignInWithEmailAndPassword } from "@/components/login-signup/AuthMethods";
 import { auth } from "@/firebaseConfig/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
-const { default: Auth } = require("@/components/login-signup/Auth");
 const { default: SignInForm } = require("@/components/login-signup/Login");
 
 const LoginPage = () => {
@@ -15,11 +12,8 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, data.email, data.createPassword)
       .then((userCredential) => {
         // Signed in
-
         const user = userCredential.user;
-
         router.push("/");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;

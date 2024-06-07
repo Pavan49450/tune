@@ -37,7 +37,7 @@ const HistoricalWeather = () => {
     pressure,
     description,
   }) => (
-    <div className="p-4 bg-gray-100 mb-4 rounded-lg shadow-md">
+    <div className="p-4 bg-gray-100 rounded-lg shadow-md">
       <div className="flex justify-between">
         <h3 className="text-lg font-semibold mb-2">{date}</h3>
         <span className="text-gray-600"> {temperature}°C</span>

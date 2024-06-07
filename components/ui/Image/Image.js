@@ -4,7 +4,7 @@ import styles from "./Image.module.css";
 
 import Image from "next/image";
 
-import LoadingSpinner from "../LoadingAnimations/CircularLoading";
+import { CircularProgress } from "@material-ui/core";
 const CustomImage = ({
   src,
   alt,
@@ -35,14 +35,13 @@ const CustomImage = ({
       {loading && (
         // <GhostLoading count={1} />
         <div className={styles.loadingState}>
-          {/* <CircularProgress
+          <CircularProgress
             style={{
               width: "inherit",
               height: "inherit",
               objectFit: "contain",
             }}
-          /> */}
-          <LoadingSpinner />
+          />
         </div>
       )}
       {/* {!loading && ( */}

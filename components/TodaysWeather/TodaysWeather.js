@@ -30,8 +30,8 @@ const TodaysWeather = () => {
   };
 
   return (
-    <div className="w-full bg-white rounded-lg">
-      <div className="flex py-12">
+    <div className="w-full bg-white rounded-lg p-4 ">
+      <div className="flex py-12 flex-col lg:flex-row gap-4">
         <Weather data={weatherData} />
         {userLoggedIn ? <WeatherInfoForm /> : <ShareWeatherInfo />}
       </div>

@@ -1,6 +1,7 @@
 "use client";
 import { auth } from "@/firebaseConfig/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { useRouter } from "next/navigation";
 
 const { default: SignInForm } = require("@/components/login-signup/Login");
@@ -23,8 +24,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="p-4 text-4xl font-semibold">Login</h1>
+    <div className="flex flex-col items-center justify-center h-screen border">
       <SignInForm onSubmitCredentials={onSubmit} />
     </div>
   );

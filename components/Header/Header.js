@@ -23,7 +23,7 @@ const Header = () => {
           <h2 className="text-white">Hi, {currentUser.displayName}</h2>
 
           <span
-            className="bg-white py-2 px-4 rounded-2xl hover:bg-zinc-200 transition-all cursor-pointer"
+            className="bg-white py-2 px-4 rounded-2xl hover:bg-zinc-200 active:scale-90 transition-all cursor-pointer"
             onClick={doSignOut}
           >
             Sign out
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
       ) : (
         <span
-          className="bg-white py-2 px-4 rounded-2xl hover:bg-zinc-200 transition-all cursor-pointer"
+          className="bg-white py-2 px-4 rounded-2xl hover:bg-zinc-200 active:scale-90 transition-all cursor-pointer"
           onClick={() => {
             router.push("/signin");
           }}

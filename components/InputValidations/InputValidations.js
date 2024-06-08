@@ -44,19 +44,19 @@ const passwordValidation = (value) => {
   // Add your validation logic for password here
 
   // Check if the password contains at least one uppercase letter
-  if (!/[A-Z]/.test(value)) {
-    return false;
-  }
+  // if (!/[A-Z]/.test(value)) {
+  //   return false;
+  // }
 
-  // Check if the password contains at least one special character
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
-    return false;
-  }
+  // // Check if the password contains at least one special character
+  // if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
+  //   return false;
+  // }
 
-  // Check if the password contains at least one digit
-  if (!/\d/.test(value)) {
-    return false;
-  }
+  // // Check if the password contains at least one digit
+  // if (!/\d/.test(value)) {
+  //   return false;
+  // }
 
   // Check if the password length is at least 8 characters
   if (value.length < 8) {

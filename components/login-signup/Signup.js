@@ -98,7 +98,9 @@ const SignUpForm = ({ onSubmitCredentials }) => {
   );
 
   return (
-    <div className={`${style.card} ${style.signIn}`}>
+    <div
+      className={`${style.card} ${style.signIn}  border-2 border-zinc-400 shadow-sm`}
+    >
       <div style={{ width: "100%" }}>
         {EmailComponent}
         {PasswordComponent}

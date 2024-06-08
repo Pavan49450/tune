@@ -15,18 +15,18 @@ const PasswordValidationBox = ({ enteredPassword, isTouched }) => {
           condition: enteredPassword.length >= 8,
           message: "Password must be 8 Characters long",
         },
-        {
-          condition: /[A-Z]/.test(enteredPassword),
-          message: "Should contain at least one Capital letter",
-        },
-        {
-          condition: /[!@#$%^&*(),.?":{}|<>]/.test(enteredPassword),
-          message: "Should contain one Special character",
-        },
-        {
-          condition: /\d/.test(enteredPassword),
-          message: "Should contain one Numeric digit",
-        },
+        // {
+        //   condition: /[A-Z]/.test(enteredPassword),
+        //   message: "Should contain at least one Capital letter",
+        // },
+        // {
+        //   condition: /[!@#$%^&*(),.?":{}|<>]/.test(enteredPassword),
+        //   message: "Should contain one Special character",
+        // },
+        // {
+        //   condition: /\d/.test(enteredPassword),
+        //   message: "Should contain one Numeric digit",
+        // },
       ].map((item, index) => (
         <div key={index} className={style.passwordValidation}>
           <ValidatePasswordFunction validate={item.condition} />

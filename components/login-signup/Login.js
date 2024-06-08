@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import style from "./SignInForm.module.css";
 import { colorTheme } from "@/constants";
 import Auth from "./Auth";
+import CustomImage from "../ui/Image/Image";
 
 const SignInForm = ({ onSubmitCredentials }) => {
   const [formIsValid, setFormIsValid] = useState(false);
@@ -59,7 +60,24 @@ const SignInForm = ({ onSubmitCredentials }) => {
   );
 
   return (
-    <div className={`${style.card} ${style.signIn}`}>
+    <div
+      className={`${style.card} ${style.signIn} border-2 border-zinc-400 shadow-sm relative`}
+    >
+      <div className="absolute top-4 left-4">
+        <CustomImage
+          onClick={() => {
+            router.push("/");
+          }}
+          src={`/assets/icons/home.png`}
+          width={40}
+          height={40}
+          classForDiv={
+            "hover:bg-zinc-200 transition-all cursor-pointer p-2 rounded-full"
+          }
+        />
+      </div>
+      <h1 className="p-4 text-4xl font-semibold">Login</h1>
+
       <div style={{ width: "100%" }}>
         {EmailComponent}
         {PasswordComponent}

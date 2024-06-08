@@ -9,9 +9,9 @@ const Button = ({
   disabled,
   doNotScrollToTop,
 }) => {
-  const combinedClassName = `${
+  const combinedClassName = `${className} ${
     !disabled ? styles.customButton : styles.disabledBtn
-  } ${className}`;
+  } `;
 
   const handleClick = () => {
     if (doNotScrollToTop) return;

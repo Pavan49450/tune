@@ -76,7 +76,7 @@ const Auth = ({ setIsAuth, text }) => {
   return (
     <button
       onClick={signInWithGoogleHandler}
-      className={`flex gap-2 justify-center px-4 py-2 items-center border w-full border-zinc-300 `}
+      className={`flex gap-2 justify-center px-4 py-2 items-center hover:bg-zinc-200 transition-all active:scale-90 border w-full border-zinc-300 `}
       style={{ width: "70%" }}
     >
       <CustomImage src={`/assets/icons/google.png`} width={30} height={30} />

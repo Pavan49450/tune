@@ -3,10 +3,15 @@ import { auth } from "@/firebaseConfig/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const { default: SignInForm } = require("@/components/login-signup/Login");
 
 const LoginPage = () => {
+  useEffect(() => {
+    document.title = "Login Page";
+  }, []);
+
   const router = useRouter();
   const onSubmit = async (data) => {
     console.log(data);

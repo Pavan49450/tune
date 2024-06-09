@@ -5,9 +5,14 @@ import Button from "@/components/ui/Button/Button";
 import CustomImage from "@/components/ui/Image/Image";
 import { useRouter } from "next/navigation";
 import style from "../../components/login-signup/SignInForm.module.css";
+import { useEffect } from "react";
 
 const SignIn = () => {
   const router = useRouter();
+  useEffect(() => {
+    document.title = "Sign In Page";
+  }, []);
+
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-evenly w-full gap-16 py-6 px-2 max-w-lg border border-zinc-400 shadow-sm relative">

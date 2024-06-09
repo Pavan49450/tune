@@ -1,4 +1,5 @@
 "use client";
+import { AuthProvider } from "@/context/AuthProvider";
 import { auth } from "@/firebaseConfig/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -8,11 +9,12 @@ import { useEffect } from "react";
 const { default: SignInForm } = require("@/components/login-signup/Login");
 
 const LoginPage = () => {
+  const router = useRouter();
+
   useEffect(() => {
     document.title = "Login Page";
   }, []);
 
-  const router = useRouter();
   const onSubmit = async (data) => {
     console.log(data);
     signInWithEmailAndPassword(auth, data.email, data.createPassword)
@@ -29,9 +31,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen border">
-      <SignInForm onSubmitCredentials={onSubmit} />
-    </div>
+    <AuthProvider>
+      <div className="flex flex-col items-center justify-center h-screen border">
+        <SignInForm onSubmitCredentials={onSubmit} />
+      </div>
+    </AuthProvider>
   );
 };
 

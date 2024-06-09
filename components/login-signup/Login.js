@@ -13,9 +13,12 @@ import style from "./SignInForm.module.css";
 import { colorTheme } from "@/constants";
 import Auth from "./Auth";
 import CustomImage from "../ui/Image/Image";
+import { useAuth } from "@/context/AuthProvider";
 
 const SignInForm = ({ onSubmitCredentials }) => {
   const [formIsValid, setFormIsValid] = useState(false);
+
+  const { userLoggedIn } = useAuth();
 
   const router = useRouter();
 
@@ -23,8 +26,14 @@ const SignInForm = ({ onSubmitCredentials }) => {
   const passwordInput = useInput({ validateValue: passwordValidation });
 
   useEffect(() => {
-    setFormIsValid(emailInput.isValid);
+    setFormIsValid(emailInput.isValid && passwordInput.isValid);
   }, [emailInput.isValid, passwordInput.isValid]);
+
+  useEffect(() => {
+    if (userLoggedIn) {
+      router.push("/");
+    }
+  }, [userLoggedIn]);
 
   // const dispatch = useDispatch();
 

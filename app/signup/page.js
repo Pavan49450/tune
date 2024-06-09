@@ -6,12 +6,28 @@ import CustomImage from "@/components/ui/Image/Image";
 import { useRouter } from "next/navigation";
 import style from "../../components/login-signup/SignInForm.module.css";
 import { useEffect } from "react";
+import { AuthProvider, useAuth } from "@/context/AuthProvider";
 
 const SignIn = () => {
+  return (
+    <AuthProvider>
+      <SigninComponent />
+    </AuthProvider>
+  );
+};
+
+export default SignIn;
+
+const SigninComponent = () => {
+  const { userLoggedIn } = useAuth();
+
   const router = useRouter();
   useEffect(() => {
     document.title = "Sign In Page";
-  }, []);
+    if (userLoggedIn) {
+      router.push("/");
+    }
+  }, [userLoggedIn]);
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">
@@ -49,5 +65,3 @@ const SignIn = () => {
     </div>
   );
 };
-
-export default SignIn;

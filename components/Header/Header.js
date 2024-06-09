@@ -16,17 +16,18 @@ const Header = () => {
   const router = useRouter();
   return (
     <div className=" max-w-7xl  mx-auto p-2 sm:p-4 pt-6 bg-customColor flex justify-between items-center flex-col gap-16 sm:gap-4 sm:flex-row">
-      <div className="flex gap-3">
+      <div className="flex gap-3 items-end">
         <CustomImage
           src={`/assets/logo.png`}
           alt="logo"
           width={40}
           height={40}
+          className="min-w-10"
         />
-        <h1 className=" text-center text-xl sm:text-2xl text-white font-semibold">
-          <span className="text-2xl sm:text-4xl">TUNE </span>
-          in-to Weather
-        </h1>
+        <div className=" text-center w-fit flex gap-2 items-end">
+          <span className="text-2xl sm:text-4xl text-white">TUNE </span>
+          <span className="text-xl sm:text-2xl font-semibold">in</span>
+        </div>
       </div>
       {userLoggedIn ? (
         <div className="flex gap-2 items-center w-full justify-end">

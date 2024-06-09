@@ -1,6 +1,6 @@
 import React from "react";
 // import WeatherAlert from "../TodaysWeather/WeatherAlert";
-import WeatherMap from "./WeatherMap";
+// import WeatherMap from "./WeatherMap";
 import HistoricalWeather from "./HistoricalWeather";
 import TravelRecommendations from "./TravelRecommendations";
 import TodaysWeather from "../TodaysWeather/TodaysWeather";
@@ -14,7 +14,7 @@ const Dashboard = () => {
         {/* <WeatherAlert /> */}
         <HistoricalWeather />
         <TravelRecommendations />
-        <WeatherMap />
+        {/* <WeatherMap /> */}
       </div>
     </div>
   );

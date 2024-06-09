@@ -1,3 +1,5 @@
+"use client";
+
 import { auth } from "@/firebaseConfig/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
@@ -37,8 +39,8 @@ export const doPasswordChange = (password) => {
   return updatePassword(auth.currentUser, password);
 };
 
-// export const doSendEmailVerification = () => {
-//   return sendEmailVerification(auth.currentUser, {
-//     url: `${window.location.origin}/home`,
-//   });
-// };
+export const doSendEmailVerification = () => {
+  return sendEmailVerification(auth.currentUser, {
+    url: `${window.location.origin}/home`,
+  });
+};

@@ -1,4 +1,3 @@
-import { useAuth } from "@/context/AuthProvider";
 import { db } from "@/firebaseConfig/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -14,15 +13,13 @@ const WeatherAlert = () => {
       const querySnapshot = await getDocs(collection(db, "weatherInfo"));
       let alertsArray = [];
       querySnapshot.forEach((doc) => {
-        // console.log(doc.data());
-        // return doc.data();
         alertsArray.push(doc.data());
       });
 
       setAlerts(alertsArray);
     };
     getWeatherAlerts();
-  }, [db]);
+  }, []);
 
   return (
     <div className="bg-white rounded-lg">
